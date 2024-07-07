@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --mainColor: #fff;
+    --mainLightColor: rgba(235, 235, 235, 0.5);
+    --mainDimColor: rgb(228, 228, 228);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-image: url('rasm.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--mainColor);
+    font-family: 'Poppins';
+}
+
+.backgroundVideo {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    object-fit: cover;
+    height: 100vh;
+    z-index: -1;
+    filter: saturate(2.5);
+}
+
+.blackScreen {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    pointer-events: none;
+    background-color: rgba(17, 17, 17, 0.2);
+}
+
+.music-Container {
+    width: 350px;
+    padding: 35px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 36px;
+    box-shadow: 0 0 20px rgba(26, 26, 26, 0.1), 0 0 40px rgba(26, 26, 26, 0.1), 0 0 80px rgba(26, 26, 26, 0.1);
+    backdrop-filter: blur(15px);
+    font-weight: 600;
+    border: 2px solid aqua;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.genre-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.genre-button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.genre-button:hover {
+    background-color: #555;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.musicPlayer {
+    margin: 0;
+    margin-bottom: 10px;
+    color: var(--mainLightColor);
+}
+
+.music-Head-Name {
+    margin: 0 auto;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.music-Artist-Name {
+    color: var(--mainDimColor);
+    margin: 4px 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+#songAvatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 18px 0;
+    position: relative;
+    cursor: pointer;
+    animation: animateAvatar 0.5s linear infinite, spin 10s linear infinite;
+}
+
+@keyframes animateAvatar {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.musicTimerDiv {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 600;
+}
+
+.musicProgressBar {
+    width: 100%;
+    margin-bottom: 16px;
+    height: 10px;
+    border-radius: 5px;
+    outline: none;
+    filter: hue-rotate(20deg);
+}
+
+.playBtn {
+    font-size: 32px;
+    margin: 8px 10px;
+    color: var(--mainColor);
+    cursor: pointer;
+    font-weight: 400;
+    transition: transform 0.2s;
+}
+
+.playBtn:hover {
+    transform: scale(1.2);
+}
+
+.musicControler {
+    cursor: pointer;
+    font-size: 28px;
+    color: var(--mainColor);
+    transition: transform 0.2s;
+}
+
+.musicControler:hover {
+    transform: scale(1.2);
+}
+
+.changeBackBtn {
+    width: 200px;
+    height: 15px;
+    background-color: #eee;
+    position: absolute;
+    border-radius: 12px 12px 0 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    transition: 0.3s;
+    color: #eee;
+    cursor: pointer;
+    padding: 3px 0 0 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.changeBackBtn:hover {
+    height: 30px;
+    color: #222;
+}
+
+
