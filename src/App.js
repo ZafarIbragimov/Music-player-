@@ -1,6 +1,7 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './App.css';
 import GenreModal from './GenreModal';
+import LoginModal from './LoginModal';
 
 function App() {
   const [currentMusicDetails, setCurrentMusicDetails] = useState({
@@ -17,6 +18,7 @@ function App() {
   const [musicCurrentTime, setMusicCurrentTime] = useState('00 : 00');
   const [videoIndex, setVideoIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(true);
 
   const currentAudio = useRef();
 
@@ -163,6 +165,10 @@ function App() {
     setShowModal(!showModal);
   };
 
+  const handleToggleLoginModal = () => {
+    setShowLoginModal(false); // Login modalni yopish
+  };
+
   return (
       <>
         <div className="container">
@@ -208,10 +214,9 @@ function App() {
               <i className="fa-solid fa-forward musicControler" onClick={handleNextSong}></i>
             </div>
           </div>
-          <div className="changeBackBtn" onClick={handleChangeBackground}>
-            Change Background
-          </div>
+
           <GenreModal show={showModal} onClose={handleToggleModal} />
+          <LoginModal show={showLoginModal} onClose={handleToggleLoginModal} /> {/* Login modalni qo'shamiz */}
         </div>
       </>
   );
