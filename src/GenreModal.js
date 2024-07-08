@@ -1,7 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './GenreModal.css';
 
 const GenreModal = ({ show, onClose }) => {
+    const navigate = useNavigate();
+
+    const handleGenreClick = (genre) => {
+        navigate(`/genre/${genre}`);
+    };
+
     if (!show) {
         return null;
     }
@@ -11,21 +18,11 @@ const GenreModal = ({ show, onClose }) => {
             <div className="modal-content">
                 <h2>Genres</h2>
                 <ul>
-                    <button>
-                         Pop
-                    </button>
-                    <button>
-                         Rock
-                    </button>
-                    <button>
-                         Hip-hop
-                    </button>
-                    <button>
-                         Jazz
-                    </button>
-                    <button>
-                         Classical
-                    </button>
+                    <button onClick={() => handleGenreClick('pop')}>Pop</button>
+                    <button onClick={() => handleGenreClick('rock')}>Rock</button>
+                    <button onClick={() => handleGenreClick('hip-hop')}>Hip-hop</button>
+                    <button onClick={() => handleGenreClick('jazz')}>Jazz</button>
+                    <button onClick={() => handleGenreClick('classical')}>Classical</button>
                 </ul>
                 <button className="close-button" onClick={onClose}>Close</button>
             </div>

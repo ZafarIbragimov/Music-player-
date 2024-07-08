@@ -1,3 +1,5 @@
+/* GenreModal.css */
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -17,7 +19,7 @@
     border-radius: 12px;
     text-align: center;
     width: 320px;
-    color: #222;
+    color: #fff;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     animation: fadeIn 0.5s ease;
 }
@@ -32,25 +34,26 @@
     list-style-type: none;
     padding: 0;
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.modal-content ul li {
+.modal-content ul button {
     margin: 10px 5px;
     font-size: 16px;
     font-weight: bold;
     color: #fff;
-    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    background: #34495e;
+    border: none;
     border-radius: 8px;
-    padding: 8px 12px;
+    padding: 10px 0;
     cursor: pointer;
     transition: background 0.3s, transform 0.3s;
 }
 
-.modal-content ul li:hover {
-    background: linear-gradient(45deg, #2575fc, #6a11cb);
-    transform: scale(1.1);
+.modal-content ul button:hover {
+    background: #2c3e50;
+    transform: scale(1.05);
 }
 
 .close-button {
@@ -67,7 +70,7 @@
 
 .close-button:hover {
     background-color: #555;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 @keyframes fadeIn {

@@ -1,7 +1,9 @@
 import React, { useRef, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import GenreModal from './GenreModal';
 import LoginModal from './LoginModal';
+import GenreList from './GenreList'; // Yangi fayl yaratamiz
 
 function App() {
   const [currentMusicDetails, setCurrentMusicDetails] = useState({
@@ -170,55 +172,63 @@ function App() {
   };
 
   return (
-      <>
-        <div className="container">
-          <audio
-              src="./Assets/songs/Chasing - NEFFEX.mp3"
-              ref={currentAudio}
-              onEnded={handleNextSong}
-              onTimeUpdate={handleAudioUpdate}
-          ></audio>
-          <video src={vidArray[videoIndex]} loop muted autoPlay className="backgroundVideo"></video>
-          <div className="blackScreen"></div>
-          <div className="music-Container">
-            <div className="genre-button-container">
-              <button className="genre-button" onClick={handleToggleModal}>Genres</button>
-            </div>
-            <p className="musicPlayer">Music Player</p>
-            <p className="music-Head-Name">{currentMusicDetails.songName}</p>
-            <p className="music-Artist-Name">{currentMusicDetails.songArtist}</p>
-            <img
-                src={currentMusicDetails.songAvatar}
-                className={avatarClass[avatarClassIndex]}
-                onClick={handleAvatar}
-                alt="song Avatar"
-                id="songAvatar"
-            />
-            <div className="musicTimerDiv">
-              <p className="musicCurrentTime">{musicCurrentTime}</p>
-              <p className="musicTotalLenght">{musicTotalLength}</p>
-            </div>
-            <input
-                type="range"
-                name="musicProgressBar"
-                className="musicProgressBar"
-                value={audioProgress}
-                onChange={handleMusicProgressBar}
-            />
-            <div className="musicControlers">
-              <i className="fa-solid fa-backward musicControler" onClick={handlePrevSong}></i>
-              <i
-                  className={`fa-solid ${isAudioPlaying ? 'fa-pause-circle' : 'fa-circle-play'} playBtn`}
-                  onClick={handleAudioPlay}
-              ></i>
-              <i className="fa-solid fa-forward musicControler" onClick={handleNextSong}></i>
-            </div>
-          </div>
+      <Router>
+        <Routes>
+          <Route
+              path="/"
+              element={
+                <div className="container">
+                  <audio
+                      src="./Assets/songs/Chasing - NEFFEX.mp3"
+                      ref={currentAudio}
+                      onEnded={handleNextSong}
+                      onTimeUpdate={handleAudioUpdate}
+                  ></audio>
+                  <video src={vidArray[videoIndex]} loop muted autoPlay className="backgroundVideo"></video>
+                  <div className="blackScreen"></div>
+                  <div className="music-Container">
+                    <div className="genre-button-container">
+                      <button className="genre-button" onClick={handleToggleModal}>Genres</button>
+                    </div>
+                    <p className="musicPlayer">Music Player</p>
+                    <p className="music-Head-Name">{currentMusicDetails.songName}</p>
+                    <p className="music-Artist-Name">{currentMusicDetails.songArtist}</p>
+                    <img
+                        src={currentMusicDetails.songAvatar}
+                        className={avatarClass[avatarClassIndex]}
+                        onClick={handleAvatar}
+                        alt="song Avatar"
+                        id="songAvatar"
+                    />
+                    <div className="musicTimerDiv">
+                      <p className="musicCurrentTime">{musicCurrentTime}</p>
+                      <p className="musicTotalLenght">{musicTotalLength}</p>
+                    </div>
+                    <input
+                        type="range"
+                        name="musicProgressBar"
+                        className="musicProgressBar"
+                        value={audioProgress}
+                        onChange={handleMusicProgressBar}
+                    />
+                    <div className="musicControlers">
+                      <i className="fa-solid fa-backward musicControler" onClick={handlePrevSong}></i>
+                      <i
+                          className={`fa-solid ${isAudioPlaying ? 'fa-pause-circle' : 'fa-circle-play'} playBtn`}
+                          onClick={handleAudioPlay}
+                      ></i>
+                      <i className="fa-solid fa-forward musicControler" onClick={handleNextSong}></i>
+                    </div>
+                  </div>
 
-          <GenreModal show={showModal} onClose={handleToggleModal} />
-          <LoginModal show={showLoginModal} onClose={handleToggleLoginModal} /> {/* Login modalni qo'shamiz */}
-        </div>
-      </>
+                  <GenreModal show={showModal} onClose={handleToggleModal} />
+                  <LoginModal show={showLoginModal} onClose={handleToggleLoginModal} /> {/* Login modalni qo'shamiz */}
+                </div>
+              }
+          />
+          <Route path="/genre/:genre" element={<GenreList />} />
+        </Routes>
+      </Router>
   );
 }
 

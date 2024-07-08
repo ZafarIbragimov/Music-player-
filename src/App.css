@@ -1,3 +1,4 @@
+/* App.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 :root {
@@ -84,6 +85,23 @@ body {
 
 .genre-button:hover {
     background-color: #555;
+}
+
+.change-background-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.change-background-button:hover {
+    background-color: #555;
+    transform: scale(1.05);
 }
 
 @keyframes fadeIn {
@@ -207,5 +225,3 @@ body {
     height: 30px;
     color: #222;
 }
-
-

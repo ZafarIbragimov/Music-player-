@@ -1,0 +1,68 @@
+/* GenreList.css */
+
+.genre-list-container {
+    padding: 20px;
+    background-color: #121212;
+    color: white;
+    min-height: 100vh;
+}
+
+.genre-list-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.genre-list-item {
+    display: flex;
+    align-items: center;
+    background-color: #1e1e1e;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.genre-list-item:hover {
+    background-color: #333;
+}
+
+.music-avatar {
+    font-size: 40px;
+    margin-right: 10px;
+}
+
+.music-details {
+    flex: 1;
+}
+
+.music-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.music-artist {
+    font-size: 14px;
+    color: #aaa;
+    margin: 0;
+}
+
+.back-button {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 70px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-left: 700px;
+}
+
+.back-button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
